@@ -68,8 +68,15 @@ public class MainActivity extends BaseActivity {
 
             if (resultCode == RESULT_OK) {
                 String selectedPizza = data.getStringExtra("선택피자");
+                //String selectedPizza = data.getStringExtra("선택가게");
+                PizzaStore selectedPizzaStore = (PizzaStore) data.getSerializableExtra("선택가게");
 
-                Toast.makeText(this, String.format("%s 를 선택하셨습니다.", selectedPizza), Toast.LENGTH_SHORT).show();
+
+
+
+
+
+                Toast.makeText(this, String.format("%s 에서 %s 를 선택하셨습니다.", selectedPizzaStore.name, selectedPizza), Toast.LENGTH_SHORT).show();
 
 
 

@@ -53,6 +53,9 @@ public class StoreDetailActivity extends BaseActivity {
 //                돌아가는 Intent는 new Intent() 안에 아무것도 넣지 않음.
                 Intent resultIntent = new Intent();
 //                결과 인텐트에 입력한 최소 평점을 첨부
+
+
+                resultIntent.putExtra("선택가게", storeData);
                 resultIntent.putExtra("선택피자", selectedItem);
 //                finish 하기 전에 결과를 설정.
                 setResult(RESULT_OK, resultIntent);
