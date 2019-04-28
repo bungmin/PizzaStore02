@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pizzaMenus">
+        <item>포테이토</item>
+        <item>불고기</item>
+        <item>컴비네이션</item>
+        <item>고구마</item>
+    </string-array>
+
+</resources>

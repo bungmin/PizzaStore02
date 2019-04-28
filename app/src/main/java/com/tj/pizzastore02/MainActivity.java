@@ -2,10 +2,13 @@ package com.tj.pizzastore02;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.tj.pizzastore02.adapters.StoreAdapter;
 import com.tj.pizzastore02.databinding.ActivityMainBinding;
@@ -15,6 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
+
+    static int REQ_FOR_FILTER = 150;
+
 
     ActivityMainBinding act;
 
@@ -38,12 +44,42 @@ public class MainActivity extends BaseActivity {
 
                 PizzaStore store = pizzaStores.get(position);
 
-                Intent intent = new Intent(mContext, StoreDetailActivity.class);
-                intent.putExtra("가게정보", store);
+              /*  Intent intent = new Intent(mContext, StoreDetailActivity.class);
                 startActivity(intent);
+*/
+                Intent resultIntent = new Intent(mContext, StoreDetailActivity.class);
+                resultIntent.putExtra("가게정보", store);
+                startActivityForResult(resultIntent, REQ_FOR_FILTER);
 
             }
         });
+
+
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+        if (requestCode == REQ_FOR_FILTER) {
+//            필터를 설정하러 갔다 돌아온게 맞다!
+
+            if (resultCode == RESULT_OK) {
+                String selectedPizza = data.getStringExtra("선택피자");
+
+                Toast.makeText(this, String.format("%s 를 선택하셨습니다.", selectedPizza), Toast.LENGTH_SHORT).show();
+
+
+
+
+            }
+
+
+        }
+
+
     }
 
     @Override

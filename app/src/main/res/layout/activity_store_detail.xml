@@ -102,7 +102,10 @@
             <Spinner
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></Spinner>
+                android:layout_height="wrap_content"
+                android:id="@+id/pizzaMenu"
+                android:entries="@array/pizzaMenus"
+                ></Spinner>
 
 
 
@@ -117,7 +120,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="확인"/>
+            android:text="확인"
+            android:id="@+id/okBtn"
+            />
 
     </LinearLayout>
 </layout>
